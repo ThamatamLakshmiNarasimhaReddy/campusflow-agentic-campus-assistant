@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusFlow | Agentic AI Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">✦</div><div><b>CampusFlow</b><small>AGENTIC AI ASSISTANT</small></div></div>
+    <div class="side-label">CAMPUS SERVICES</div>
+    <button class="service active" data-prompt="I want to book the computer lab tomorrow at 10 AM">▦ <span>Lab booking</span></button>
+    <button class="service" data-prompt="The classroom projector is not working. Please register a maintenance complaint.">⚙ <span>Maintenance</span></button>
+    <button class="service" data-prompt="Check my attendance percentage">◷ <span>Attendance</span></button>
+    <button class="service" data-prompt="I need leave tomorrow due to a personal reason">▤ <span>Leave application</span></button>
+    <button class="service" data-prompt="I want to reserve Introduction to Python Programming from the library">▣ <span>Library reservation</span></button>
+    <div class="sidebar-note"><b>Prototype mode</b><p>Uses sample campus data. Not connected to official university systems.</p></div>
+  </aside>
+  <main class="main">
+    <header><div><div class="eyebrow">STUDENT SERVICE PORTAL</div><h1>Campus AI Assistant</h1><p>Tell me what you need. I'll plan and coordinate the steps.</p></div><div class="online"><i></i> Agent online</div></header>
+    <section class="welcome">
+      <div><span class="tag">MULTI-STEP AGENT</span><h2>How can I help you today?</h2><p>I can handle campus requests, check results, and escalate issues that need a human.</p></div>
+      <div class="spark">✧</div>
+    </section>
+    <section class="quick">
+      <button data-prompt="Book the computer lab tomorrow at 10 AM"><b>▦ Lab booking</b><small>Check a slot and reserve it</small></button>
+      <button data-prompt="The classroom fan is not working. Register a complaint."><b>⚙ Maintenance</b><small>Report a campus issue</small></button>
+      <button data-prompt="Check my attendance percentage"><b>◷ Attendance</b><small>View demo attendance</small></button>
+      <button data-prompt="Submit a leave application for tomorrow"><b>▤ Leave request</b><small>Send a request for review</small></button>
+    </section>
+    <section class="chat-panel">
+      <div class="panel-head"><div><b>Conversation</b><small>Agent planning and execution are shown below</small></div><button id="clearBtn" class="clear">Clear chat</button></div>
+      <div id="messages" class="messages">
+        <div class="message bot"><div class="avatar">✦</div><div class="bubble"><b>Hello! I'm your campus service agent.</b><p>Try: “Book the computer lab tomorrow at 10 AM” or “The classroom projector is broken.”</p></div></div>
+      </div>
+      <form id="chatForm"><input id="student" placeholder="Your name (optional)" aria-label="Student name"><div class="compose"><input id="message" placeholder="Describe your campus request..." autocomplete="off" required><button type="submit">Send <span>➤</span></button></div><small class="hint">Demo only: do not enter passwords, private IDs, or sensitive information.</small></form>
+    </section>
+    <footer>CampusFlow · Academic prototype · Python + Flask + SQLite</footer>
+  </main>
+  <aside class="right">
+    <div class="right-head"><span class="pulse"></span> AGENT ACTIVITY</div>
+    <div class="activity-card"><div class="activity-icon">◎</div><b>Agent workflow</b><p>The agent follows a structured process for every request.</p><ol><li>Understand goal</li><li>Select service tool</li><li>Execute action</li><li>Observe result</li><li>Re-plan or escalate</li></ol></div>
+    <div class="right-head">LATEST REQUESTS <button id="refreshBtn">↻</button></div>
+    <div id="requestList" class="request-list"><p class="muted">No requests yet.</p></div>
+    <div class="baseline"><b>Rule-based baseline</b><p>A simple keyword rule selects one service. The agent prototype additionally logs planning, observes outcomes, tries an alternative slot, and escalates unresolved requests.</p></div>
+  </aside>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
